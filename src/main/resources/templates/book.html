@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+    <script src="./js/book.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body ng-app="BookManagement" ng-controller="BookController">
+<div style="background-color: lightgoldenrodyellow;height: 120px">
+    <input align="left" type="image" src="image/logo.jpg" name="q" style="width:200px;height:120px">
+    <a href="/" class="btn btn-success">Home</a>
+    <a href="/user" class="btn btn-success">User</a>
+    <a href="/book" class="btn btn-success">Book</a>
+    <a href="/account" class="btn btn-success">Account</a>
+    <a href="/author" class="btn btn-success">Author</a>
+    <a href="/employee" class="btn btn-success">Employee</a>
+    <a href="/bill" class="btn btn-success">Bill</a>
+    <a href="/detail" class="btn btn-success">Bill Detail</a>
+    <a href="/genre" class="btn btn-success">Genre</a>
+    <a href="/provider" class="btn btn-success">Provider</a>
+    <a href="/publisher" class="btn btn-success">Publisher</a>
+    <h3>
+        Book Manager
+    </h3>
+</div>
+
+<form ng-submit="submit();" ng-show="boo.id != null">
+    <table border="1">
+        <tr ng-show="boo.id != -1">
+            <td>Book Id</td>
+            <td>{{boo.id}}</td>
+        </tr>
+        <tr>
+            <td>Book Name</td>
+            <td><input type="text" ng-model="boo.name"/></td>
+        </tr>
+        <tr>
+            <td>Author ID</td>
+            <td><input type="text" ng-model="boo.aut"/></td>
+        </tr>
+        <tr>
+            <td>Genre ID</td>
+            <td><input type="text" ng-model="boo.gen"/></td>
+        </tr>
+        <tr>
+            <td>Publisher ID</td>
+            <td><input type="text" ng-model="boo.pub"/></td>
+        </tr>
+        <tr>
+            <td>Provider ID</td>
+            <td><input type="text" ng-model="boo.pro"/></td>
+        </tr>
+        <tr>
+            <td>Publish Year</td>
+            <td><input type="text" ng-model="boo.year"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit" class="blue-button"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<a class="btn btn-success" ng-click="addBook();">Create Book</a><br/>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author ID</th>
+        <th>Genre ID</th>
+        <th>Publisher ID</th>
+        <th>Provider ID</th>
+        <th>Year</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <!-- $scope.books -->
+    <tr ng-repeat="book in books">
+        <td> {{ book.id }}</td>
+        <td> {{ book.name }}</td>
+        <td>{{ book.aut }}</td>
+        <td>{{ book.gen }}</td>
+        <td> {{ book.pub }}</td>
+        <td>{{ book.pro }}</td>
+        <td>{{ book.year }}</td>
+        <td>
+            <a ng-click="edit(book)" class="edit-button">Edit</a>
+        </td>
+        <td>
+            <a ng-click="delete(book)" class="delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+<hr>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>TLLib</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<div style="background-color: lightgoldenrodyellow; height: 130px">
+    <input align="left" type="image" src="image/logo.jpg" name="q" style="width:200px;height:130px">
+    <br>
+    <h1 style="font-family: 'VNI-HLThuphap';font-size: 3em; color: red">TL Library</h1>
+    <form>
+        <a href="/" class="btn btn-success">Home</a>
+        <a href="/user" class="btn btn-success">User</a>
+        <a href="/book" class="btn btn-success">Book</a>
+        <a href="/account" class="btn btn-success">Account</a>
+        <a href="/author" class="btn btn-success">Author</a>
+        <a href="/employee" class="btn btn-success">Employee</a>
+        <a href="/bill" class="btn btn-success">Bill</a>
+        <a href="/detail" class="btn btn-success">Bill Detail</a>
+        <a href="/genre" class="btn btn-success">Genre</a>
+        <a href="/provider" class="btn btn-success">Provider</a>
+        <a href="/publisher" class="btn btn-success">Publisher</a>
+    </form>
+</div>
+<div id="left_ads_float">
+    <a href="/book" target="_blank"><img border="0" src="image/ban_daula.jpg" style="height: 344px; width: 243px"/></a>
+    <br>
+    <!--    <a href="/book" target="_blank"><img border="0" src="image/ban_ngrong.jpg" style="height: 200px; width: 130px"/></a>-->
+</div>
+<div id="right_ads_float">
+    <a href="/book" target="_blank"><img border="0" src="image/ban_novel.jpg"
+                                         style="height: fit-content; width: fit-content"/></a>
+    <br>
+    <!--    <a href="/book" target="_blank"><img border="0" src="image/ban_sgk.jpg" style="height: 200px; width: 130px" /></a>-->
+</div>
+<style>
+    #left_ads_float {
+        bottom: 24px;
+        left: 10px;
+        position: fixed;
+    }
+
+    #right_ads_float {
+        bottom: 24px;
+        right: 10px;
+        position: fixed;
+    }
+</style>
+<script>
+    var vtlai_remove_fads = false;
+
+    function vtlai_check_adswidth() {
+        if (vtlai_remove_fads) {
+            document.getElementById('left_ads_float').style.display = 'none';
+            document.getElementById('right_ads_float').style.display = 'none';
+            return;
+        } else if (document.cookie.indexOf('vtlai_remove_float_ads') != -1) {
+            vtlai_remove_fads = true;
+            vtlai_check_adswidth();
+            return;
+        } else {
+            var lwidth = parseInt(document.body.clientWidth);
+            if (lwidth < 1110) {
+                document.getElementById('left_ads_float').style.display = 'none';
+                document.getElementById('right_ads_float').style.display = 'none';
+            } else {
+                document.getElementById('left_ads_float').style.display = 'block';
+                document.getElementById('right_ads_float').style.display = 'block';
+            }
+            setTimeout('vtlai_check_adswidth()', 10);
+        }
+    }
+</script>
+<hr>
+<h4 style="text-align: center; font-family: 'Times New Roman'; font-size: 20px">Giới thiệu chung: </h4>
+<marquee>
+    <p style="color: red; text-align: left">TLLib là một website Quản lý thư viện online. Giúp quản lý sách một các
+        nhanh chóng, thuận tiện, nhằm phục vụ khách hàng một cách tốt nhất.</p>
+</marquee>
+<hr>
+<!--<h4 style="text-align: center">TLLib gồm các chức năng cơ bản: </h4>-->
+<!--<menu>-->
+<!--    <li>Hiển thị</li>-->
+<!--    <li>Thêm</li>-->
+<!--    <li>Sửa</li>-->
+<!--    <li>Xóa</li>-->
+<!--</menu>-->
+<p style="font-size: 10px">
+    ................................................................................................................ </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/whzb184SFQA" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+<!--<h4>Sách phổ biến: </h4>-->
+<!--<div id="left_ads_float">-->
+<!--    <a href="/user" target="_blank"><img border="0" src="image/logo.jpg" style="height: 200px; width: 130px"/></a>-->
+<!--    <a href="/user" target="_blank"><img border="0" src="image/diagram.jpg" style="height: 200px; width: 130px"/></a>-->
+<!--</div>-->
+
+</body>
+</html>

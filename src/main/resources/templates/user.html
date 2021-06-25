@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+    <style>
+        sticknav {
+            background-color: red;
+        }
+    </style>
+    <script src="./js/user.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+
+</head>
+<body ng-app="UserManagement" ng-controller="UserController">
+<sticknav>
+    <div style="background-color: lightgoldenrodyellow;height: 120px">
+        <input align="left" type="image" src="image/logo.jpg" name="q" style="width:200px;height:120px">
+        <a href="/" class="btn btn-success">Home</a>
+        <a href="/user" class="btn btn-success">User</a>
+        <a href="/book" class="btn btn-success">Book</a>
+        <a href="/account" class="btn btn-success">Account</a>
+        <a href="/author" class="btn btn-success">Author</a>
+        <a href="/employee" class="btn btn-success">Employee</a>
+        <a href="/bill" class="btn btn-success">Bill</a>
+        <a href="/detail" class="btn btn-success">Bill Detail</a>
+        <a href="/genre" class="btn btn-success">Genre</a>
+        <a href="/provider" class="btn btn-success">Provider</a>
+        <a href="/publisher" class="btn btn-success">Publisher</a>
+        <a href="/user2" class="btn btn-success">Test</a>
+        <h3>
+            User Manager
+        </h3>
+    </div>
+</sticknav>
+
+<form ng-submit="submit();" ng-show="use.id != null">
+    <table border="1">
+        <tr ng-show="use.id != -1">
+            <td>User Id</td>
+            <td>{{use.id}}</td>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" ng-model="use.name"/></td>
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td><input type="text" ng-model="use.address"/></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" ng-model="use.phone"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit" class="blue-button"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<a class="btn btn-success" ng-click="addUser();">Create User</a><br/>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <!-- $scope.user -->
+    <tr ng-repeat="user in users">
+        <td> {{ user.id }}</td>
+        <td> {{ user.name }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.phone }}</td>
+
+        <td>
+            <a ng-click="edit(user)" class="edit-button">Edit</a>
+        </td>
+        <td>
+            <a ng-click="delete(user)" class="delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+<hr>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var aboveHeight = $('header').outerHeight();
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > aboveHeight) {
+                $('sticknav').addClass('fixed').css('top', '0').next().css('padding-top', '60px');
+            } else {
+                $('sticknav').removeClass('fixed').next().css('padding-top', '0');
+            }
+        });
+    });
+</script>
+</body>
+</html>

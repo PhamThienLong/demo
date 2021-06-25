@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bill</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+    <script src="./js/bill.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body ng-app="BillManagement" ng-controller="BillController">
+<div style="background-color: lightgoldenrodyellow;height: 120px">
+    <input align="left" type="image" src="image/logo.jpg" name="q" style="width:200px;height:120px">
+    <a href="/" class="btn btn-success">Home</a>
+    <a href="/user" class="btn btn-success">User</a>
+    <a href="/book" class="btn btn-success">Book</a>
+    <a href="/account" class="btn btn-success">Account</a>
+    <a href="/author" class="btn btn-success">Author</a>
+    <a href="/employee" class="btn btn-success">Employee</a>
+    <a href="/bill" class="btn btn-success">Bill</a>
+    <a href="/detail" class="btn btn-success">Bill Detail</a>
+    <a href="/genre" class="btn btn-success">Genre</a>
+    <a href="/provider" class="btn btn-success">Provider</a>
+    <a href="/publisher" class="btn btn-success">Publisher</a>
+    <h3>
+        Bill Manager
+    </h3>
+</div>
+
+<form ng-submit="submit();" ng-show="bil.id != null">
+    <table border="1">
+        <tr ng-show="bil.id != -1">
+            <td>Bill Id</td>
+            <td>{{bil.id}}</td>
+        </tr>
+        <tr>
+            <td>Employee ID</td>
+            <td><input type="text" ng-model="bil.emp"/></td>
+        </tr>
+        <tr>
+            <td>User ID</td>
+            <td><input type="text" ng-model="bil.use"/></td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><input type="date" ng-model="bil.date"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit" class="blue-button"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<a class="btn btn-success" ng-click="addBill();">Create Bill</a>
+<br/>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Employee ID</th>
+        <th>User ID</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <!-- $scope.bills -->
+    <tr ng-repeat="bill in bills">
+        <td> {{ bill.id }}</td>
+        <td> {{ bill.emp }}</td>
+        <td>{{ bill.use }}</td>
+        <td>{{ bill.date }}</td>
+        <td>
+            <a ng-click="edit(bill)" class="edit-button">Edit</a>
+        </td>
+        <td>
+            <a ng-click="delete(bill)" class="delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
