@@ -60,5 +60,9 @@ public class AccountController {
     @ResponseBody
     public void deleteAccount(@PathVariable("accId") Integer accId) {
         accountRepository.deleteById(accId);
+        System.out.println("Remove");
+        
     }
+
+
 }
